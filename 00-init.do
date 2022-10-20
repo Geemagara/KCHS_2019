@@ -27,6 +27,11 @@ else if (inlist("${suser}","Pius")){
 	*Local directory of your checked out copy of the code
 	global swdLocal = "Desktop location of the KCHS2019_povtables folder"
 }
+*Magara
+else if (inlist("${suser}","HP")){	
+	*Local directory of your checked out copy of the code
+	global swdLocal = "C:\KCHS_2019"
+}
 *Silas, or anyone else
 else if (inlist("${suser}","Silas, or anyone else")){	
 	*Local directory of your checked out copy of the code
@@ -46,7 +51,7 @@ foreach d of local dir {
 	 }
 }
 
-if (inlist("${suser}","wb562201","WB562201")) {
+if (inlist("${suser}","wb562201","WB562201", "HP")) {
 	qui filelist, dir("${gsdDataRaw_imp}") pat("*.dta") //list files in folder
 	drop if regexm(dirname,"Labor")
 	qui levelsof filename,local(files) //store their names in local
